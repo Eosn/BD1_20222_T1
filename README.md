@@ -5,8 +5,9 @@ Trabalho desenvolvido durante a disciplina de BD1
 
 ### 1. COMPONENTES<br>
 Integrantes do grupo<br>
-primeiro_componente_do_grupo:email_primeiro_componente@dominio.com<br>
-segundo_componente_do_grupo:email_segundo_componente@dominio.com<br>
+Éllen Oliveira Silva Neves: ellenosneves@gmail.com<br>
+Carlos Breno Norato Rosa: carlosnoratorosa@gmail.com<br>
+Cléber de Jesus Salustiano: kleberdejesus45@hotmail.com
 ...<br>
 
 ### 2.INTRODUÇÃO E MOTIVAÇÃO<br>
