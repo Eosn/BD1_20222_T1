@@ -18,12 +18,6 @@ Este documento contém a especificação do projeto do banco de dados Controle d
 
 ### 3.MINI-MUNDO<br>
 
-Descrever o mini-mundo! (Não deve ser maior do que 30 linhas, se necessário resumir para justar) <br>
-Entrevista com o usuário e identificação dos requisitos.(quando for o caso de sistemas com cliente  real)<br>
-Descrição textual das regras de negócio definidas como um  subconjunto do mundo real 
-cujos elementos são propriedades que desejamos incluir, processar, armazenar, 
-gerenciar, atualizar, e que descrevem a proposta/solução a ser desenvolvida.
-
 > Uma empresa de software quer organizar melhor o controle sobre os funcionários, atividades, horários e projetos que estão sendo realizados. Em relação aos funcionários, é importante  saber informações gerais (nome, data de nascimento, cpf), cargo na empresa, quando cada um começa a trabalhar no dia e quando o mesmo para. Os funcionários são organizados em equipes com apenas um supervisor, essas equipes recebem atividades que surgem de demandas em algum projeto já com o prazo de cada demanda definido. Cabe ao supervisor direcionar qual parte da atividade cada funcionário vai fazer, essas  atividades são organizadas em fila para evitar o tempo ocioso, então quando algum funcionário termina uma tarefa, outra já pode estar à sua espera para ser realizada; o mesmo tem todo acesso a essa fila de atividades. 
     As pessoas hierarquicamente superiores têm acesso ao quadro de atividades dos subordinados, e caso seus subordinados sejam supervisores em alguma equipe ele também tem acesso a essa equipe.
 . 
