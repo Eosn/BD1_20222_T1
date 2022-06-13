@@ -31,8 +31,15 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
 ![Alt text](https://github.com/discipbd1/trab01/blob/master/balsamiq.png?raw=true "Title")
 ![Arquivo PDF do Protótipo Balsamiq feito para Empresa Devcom](https://github.com/discipbd1/trab01/blob/master/arquivos/EmpresaDevcom.pdf?raw=true "Empresa Devcom")
 #### 4.2 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
-    a) O sistema proposto poderá fornecer quais tipos de relatórios e informaçes? 
-    b) Crie uma lista com os 5 principais relatórios que poderão ser obtidos por meio do sistema proposto!
+ a) O sistema proposto poderá fornecer quais tipos de relatórios e informaçes? 
+  Relatório referente ao fluxo de trabalho da empresa
+
+ b) Crie uma lista com os 5 principais relatórios que poderão ser obtidos por meio do sistema proposto! 
+  - Relatório que mostre quais atividades o funcionario esta fazendo parte 
+  - Relatório mostrando quais tarefas o funcionario esta diretamente realizando
+  - Relatório dos gerentes de cada equipe
+  - Relatório de quais equipes estão responsaveis por atividades de cada projeto
+  - Historico de presença e horario de trabalho de cada funcionario
     
 > A Empresa DevCom precisa inicialmente dos seguintes relatórios:
 * Relatório que mostre o nome de cada supervisor(a) e a quantidade de empregados supervisionados.
