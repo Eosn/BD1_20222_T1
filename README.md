@@ -10,7 +10,7 @@ Carlos Breno Norato Rosa: carlosnoratorosa@gmail.com<br>
 Cléber de Jesus Salustiano: kleberdejesus45@hotmail.com<br>
 
 ### 2.INTRODUÇÃO E MOTIVAÇÃO<br>
-> Este documento contém a especificação do projeto do banco de dados, para uma empresa desenvolvedora de software, cujo o objetivo é armazenar e gerir todo o fluxo de informação ligado aos projetos gerais, que estão sendo produzidos, bem como as atividades, tarefas e verificação de cada funcionário e seus respectivos responsáveis. O objetivo da empresa é entregar projetos competentes, de qualidade e dentro dos prazos estipulados. 
+> Este documento contém a especificação do projeto do banco de dados para uma empresa desenvolvedora de software, cujo o objetivo é armazenar e gerir todo o fluxo de informação ligado aos projetos gerais, que estão sendo produzidos, bem como as atividades, tarefas e verificação de cada funcionário e seus respectivos responsáveis. O objetivo da empresa é entregar projetos competentes, de qualidade e dentro dos prazos estipulados. 
 
 
 ### 3.MINI-MUNDO<br>
@@ -49,14 +49,14 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
  
  
 #### 4.3 TABELA DE DADOS DO SISTEMA:
-    a) Esta tabela deve conter todos os atributos do sistema e um mínimo de 10 linhas/registros de dados.
-    b) Esta tabela tem a intenção de simular um relatório com todos os dados que serão armazenados 
-    
+<!--a) Esta tabela deve conter todos os atributos do sistema e um mínimo de 10 linhas/registros de dados.
+b) Esta tabela tem a intenção de simular um relatório com todos os dados que serão armazenados 
+-->
 ![Tabela de Dados do Sistema](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/BDDTrabalho_tabelas.xlsx?raw=thue "Tabela de dados") 
     
     
 ### 5.MODELO CONCEITUAL<br>
-    A) Utilizar a Notação adequada (Preferencialmente utilizar o BR Modelo 3)
+<!--    A) Utilizar a Notação adequada (Preferencialmente utilizar o BR Modelo 3)
     B) O mínimo de entidades do modelo conceitual pare este trabalho será igual a 3 e o Máximo 5.
         * informe quais são as 3 principais entidades do sistema em densenvolvimento<br>(se houverem mais de 3 entidades, pense na importância da entidade para o sistema)       
     C) Principais fluxos de informação/entidades do sistema (mínimo 3). <br>Dica: normalmente estes fluxos estão associados as tabelas que conterão maior quantidade de dados 
@@ -64,28 +64,57 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
         Garantir que a semântica dos atributos seja clara no esquema (nomes coerentes com os dados).
         Criar o esquema de forma a garantir a redução de informação redundante, possibilidade de valores null, 
         e tuplas falsas (Aplicar os conceitos de normalização abordados).   
-        
-![Alt text](https://github.com/discipbd1/trab01/blob/master/images/concept_sample.png?raw=true "Modelo Conceitual")
+-->
+
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/BDDT_modeloconceitual_EllenNevesCarlosBrenoNoratoCleberSalustiano.png?raw=true "Modelo Conceitual")
     
     
         
     
 #### 5.1 Validação do Modelo Conceitual
-    [Grupo01]: [Nomes dos que participaram na avaliação]
-    [Grupo02]: [Nomes dos que participaram na avaliação]
+    [Grupo01]: [Matheus Teixeira, Douglas Nunes]
+    [Grupo02]: [Arthur Delpupo, Guilherme Bleidão]
 
 #### 5.2 Descrição dos dados 
-    [objeto]: [descrição do objeto]
-    
-    EXEMPLO:
-    CLIENTE: Tabela que armazena as informações relativas ao cliente<br>
-    CPF: campo que armazena o número de Cadastro de Pessoa Física para cada cliente da empresa.<br>
+```
+FUNCIONARIO: Tabela que armazena as informações relativas ao funcionário
+	CPF: campo que armazena o número de Cadastro de Pessoa Física para cada funcionário da empresa.
+	NOME: campo que armazena o nome de cada funcionário da empresa.
+	DATA_NASCIMENTO: campo que armazena a data de nascimento de cada funcionário da empresa.
+     
+EQUIPE: Tabela que armazena as informações relativas as equipes
+	NOME: campo que armazena o nome de cada equipe da empresa
+
+PROJETO: Tabela que armazena as informações dos projetos que a empresa está desenvolvendo.
+	NOME: campo que armazena o nome de cada projeto da empresa.
+
+ATIVIDADE: Tabela que armazena informações relativas as atividades de cada projeto. 
+	ATIVIDADE: campo que armazena a descrição da atividade que está sendo desenvolvida.
+	TEMPO_ESTIMADO: campo que armazena o tempo estimado de cada atividade.
+	STATUS: campo que armazena a situação de cada atividade (PENDENTE, FEITO, ETC).
+
+TAREFA: Tabela que armazena informações relativas as tarefas de cada atividade.
+	DESCRICAO: campo que armazena a descrição de cada tarefa.
+	
+CARGO: Tabela que armazena informações dos cargos existentes dentro da empresa.
+	NOME: campo que armazena o nome de cada cargo.
+
+FOLHA_DE_PONTO: Tabela que armazena informações relativas aos pontos de cada funcionário
+	ENTRADA: campo que armazena o tempo e data de entrada de cada funcionário.
+	SAIDA_ALMOCO: campo que armazena o tempo e data de saida de almoço de cada funcionário.
+	ENTRADA_POS_ALMOCO: campo que armazena o tempo e data de entrada pós almoço de cada funcionário.
+	SAIDA: campo que armazena o tempo e data de saída de cada funcionário.
+```
+
 
 
 ### 6	MODELO LÓGICO<br>
-        a) inclusão do esquema lógico do banco de dados
+<!--        a) inclusão do esquema lógico do banco de dados
         b) verificação de correspondencia com o modelo conceitual 
         (não serão aceitos modelos que não estejam em conformidade)
+-->	
+
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/BDDT_modelologico_Carlos_BrenoEllenNevesCleberSalustiano.png?raw=true "Modelo Conceitual")
 
 ### 7	MODELO FÍSICO<br>
 ```sql
