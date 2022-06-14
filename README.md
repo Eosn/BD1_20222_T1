@@ -10,11 +10,8 @@ Carlos Breno Norato Rosa: carlosnoratorosa@gmail.com<br>
 Cléber de Jesus Salustiano: kleberdejesus45@hotmail.com<br>
 
 ### 2.INTRODUÇÃO E MOTIVAÇÃO<br>
-Este documento contém a especificação do projeto do banco de dados Controle de Funcionários e Tarefas 
-<br>e motivação da escolha realizada. <br>
+> Este documento contém a especificação do projeto do banco de dados, para uma empresa desenvolvedora de software, cujo o objetivo é armazenar e gerir todo o fluxo de informação ligado aos projetos gerais, que estão sendo produzidos, bem como as atividades, tarefas e verificação de cada funcionário e seus respectivos responsáveis. O objetivo da empresa é entregar projetos competentes, de qualidade e dentro dos prazos estipulados. 
 
-> A empresa "Devcom Projetos" visa colaborar com desenvolvimento de projetos para uma sociedade melhor. Sabendo-se dos desafios para gerenciar projetos dentro de uma empresa e visando unir as informações relativas a funcionários, departamentos e projetos em um mesmo local, ficamos motivados com o desenvolvimento deste sistema. O Sistema "Devcom" tem como objetivo gerenciar todas as informações ao desenvolvimento das atividades de projetos em diversas localidades do país. Para realizar suas operações adequadamente e empresa necessita que sistema que armazene informações relativas aos Projetos, Departamentos e Empregados, além de também armazenar dados sobre  Dependentes e Históricos de Salário dos empregados. O sistema deverá gerar um conjunto de relatórios que por sua vez atenderá os anseios da empresa em questão.
- 
 
 ### 3.MINI-MUNDO<br>
 
@@ -55,7 +52,7 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
     a) Esta tabela deve conter todos os atributos do sistema e um mínimo de 10 linhas/registros de dados.
     b) Esta tabela tem a intenção de simular um relatório com todos os dados que serão armazenados 
     
-![Exemplo de Tabela de dados da Empresa Devcom](https://github.com/discipbd1/trab01/blob/master/arquivos/TabelaEmpresaDevCom_sample.xlsx?raw=true "Tabela - Empresa Devcom")
+![Tabela de Dados do Sistema](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/BDDTrabalho_tabelas.xlsx?raw=thue "Tabela de dados") 
     
     
 ### 5.MODELO CONCEITUAL<br>
@@ -91,8 +88,107 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
         (não serão aceitos modelos que não estejam em conformidade)
 
 ### 7	MODELO FÍSICO<br>
-        a) inclusão das instruções de criacão das estruturas em SQL/DDL 
-        (criação de tabelas, alterações, etc..) 
+```sql
+CREATE TABLE FUNCIONARIO (
+	ID INTEGER PRIMARY KEY,
+	Nome VARCHAR,
+	Data_nascimento DATE,
+	Cpf VARCHAR,
+	FK_CARGO_Id INTEGER
+);
+
+CREATE TABLE CARGO (
+	Id INTEGER PRIMARY KEY,
+	Nome VARCHAR
+);
+
+CREATE TABLE FOLHA_PONTO (
+	Id INTEGER PRIMARY KEY,
+	entrada TIMESTAMP,
+	saida_almoco TIMESTAMP,
+	entrada_pos_almoco TIMESTAMP,
+	saida TIMESTAMP,
+	FK_FUNCIONARIO_ID INTEGER
+);
+
+CREATE TABLE EQUIPE (
+	id INTEGER PRIMARY KEY,
+	nome VARCHAR,
+	FK_FUNCIONARIO_ID INTEGER
+);
+
+CREATE TABLE ATIVIDADE (
+	id INTEGER PRIMARY KEY,
+	atividade VARCHAR,
+	tempo_estimado TIME,
+	status VARCHAR,
+	FK_EQUIPE_id INTEGER,
+	FK_PROJETO_id INTEGER
+);
+
+CREATE TABLE PROJETO (
+	id INTEGER PRIMARY KEY,
+	nome VARCHAR
+);
+
+CREATE TABLE TAREFA (
+	FK_ATIVIDADE_id INTEGER,
+	FK_FUNCIONARIO_ID INTEGER,
+	id INTEGER PRIMARY KEY,
+	descricao VARCHAR
+);
+
+CREATE TABLE EQUIPE_FUNCIONARIO (
+	fk_FUNCIONARIO_ID INTEGER,
+	fk_EQUIPE_id INTEGER
+);
+
+ALTER TABLE FUNCIONARIO ADD CONSTRAINT FK_FUNCIONARIO_2
+	FOREIGN KEY (FK_CARGO_Id)
+	REFERENCES CARGO (Id)
+	ON DELETE RESTRICT;
+ 
+ALTER TABLE FOLHA_PONTO ADD CONSTRAINT FK_FOLHA_PONTO_2
+	FOREIGN KEY (FK_FUNCIONARIO_ID)
+	REFERENCES FUNCIONARIO (ID)
+	ON DELETE RESTRICT;
+ 
+ALTER TABLE EQUIPE ADD CONSTRAINT FK_EQUIPE_2
+	FOREIGN KEY (FK_FUNCIONARIO_ID)
+	REFERENCES FUNCIONARIO (ID)
+	ON DELETE RESTRICT;
+ 
+ALTER TABLE ATIVIDADE ADD CONSTRAINT FK_ATIVIDADE_2
+	FOREIGN KEY (FK_EQUIPE_id)
+	REFERENCES EQUIPE (id)
+	ON DELETE RESTRICT;
+
+ALTER TABLE ATIVIDADE ADD CONSTRAINT FK_ATIVIDADE_3
+	FOREIGN KEY (FK_PROJETO_id)
+	REFERENCES PROJETO (id)
+	ON DELETE RESTRICT;
+ 
+ALTER TABLE TAREFA ADD CONSTRAINT FK_TAREFA_1
+	FOREIGN KEY (FK_ATIVIDADE_id)
+	REFERENCES ATIVIDADE (id)
+	ON DELETE RESTRICT;
+ 
+ALTER TABLE TAREFA ADD CONSTRAINT FK_TAREFA_2
+	FOREIGN KEY (FK_FUNCIONARIO_ID)
+	REFERENCES FUNCIONARIO (ID)
+	ON DELETE RESTRICT;
+ 
+ALTER TABLE EQUIPE_FUNCIONARIO ADD CONSTRAINT FK_EQUIPE_FUNCIONARIO_1
+	FOREIGN KEY (fk_FUNCIONARIO_ID)
+	REFERENCES FUNCIONARIO (ID)
+	ON DELETE RESTRICT;
+ 
+ALTER TABLE EQUIPE_FUNCIONARIO ADD CONSTRAINT FK_EQUIPE_FUNCIONARIO_2
+	FOREIGN KEY (fk_EQUIPE_id)
+	REFERENCES EQUIPE (id)
+	ON DELETE RESTRICT;
+
+```
         
        
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
