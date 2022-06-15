@@ -346,6 +346,46 @@ INSERT INTO TAREFA (FK_ATIVIDADE_id, FK_FUNCIONARIO_ID, id, descricao) VALUES
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
     OBS: Incluir para cada tópico as instruções SQL + imagens (print da tela) mostrando os resultados.<br>
 #### 9.1	CONSULTAS DAS TABELAS COM TODOS OS DADOS INSERIDOS (Todas) <br>
+```sql
+SELECT * FROM funcionario
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/BDD_SelectFuncionario.png?raw=true)
+
+```sql
+SELECT * FROM folha_ponto
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/BDD_SelectFolhaPonto.png?raw=true)
+
+```sql
+SELECT * FROM cargo
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/BDD_SelectCargo.png?raw=true)
+
+```sql
+SELECT * FROM equipe
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/BDD_SelectEquipe.png?raw=true)
+
+```sql
+SELECT * FROM equipe_funcionario
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/BDD_SelectEquipeFuncionario.png?raw=true)
+
+```sql
+SELECT * FROM projeto
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/BDD_SelectProjeto.png?raw=true)
+
+```sql
+SELECT * FROM atividade
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/BDD_SelectAtividade.png?raw=true)
+
+```sql
+SELECT * FROM tarefa
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/BDD_SelectTarefa.png?raw=true)
+
 
 ># Marco de Entrega 01: Do item 1 até o item 9.1<br>
 
