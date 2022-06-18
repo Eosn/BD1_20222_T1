@@ -1,4 +1,4 @@
-# TRABALHO 01:  Título do Trabalho
+# TRABALHO 01
 Trabalho desenvolvido durante a disciplina de BD1
 
 # Sumário
@@ -17,27 +17,38 @@ Cléber de Jesus Salustiano: kleberdejesus45@hotmail.com<br>
 
 > Uma empresa de software quer organizar melhor o controle sobre os funcionários, atividades, horários e projetos que estão sendo realizados. Em relação aos funcionários, é importante  saber informações gerais (nome, data de nascimento, cpf), cargo na empresa, quando cada um começa a trabalhar no dia e quando o mesmo para. Os funcionários são organizados em equipes com apenas um supervisor, essas equipes recebem atividades que surgem de demandas em algum projeto já com o prazo de cada demanda definido. Cabe ao supervisor direcionar qual parte da atividade cada funcionário vai fazer, essas  atividades são organizadas em fila para evitar o tempo ocioso, então quando algum funcionário termina uma tarefa, outra já pode estar à sua espera para ser realizada; o mesmo tem todo acesso a essa fila de atividades. 
     As pessoas hierarquicamente superiores têm acesso ao quadro de atividades dos subordinados, e caso seus subordinados sejam supervisores em alguma equipe ele também tem acesso a essa equipe.
-. 
 
 ### 4.PROTOTIPAÇÃO, PERGUNTAS A SEREM RESPONDIDAS E TABELA DE DADOS<br>
 #### 4.1 RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
+
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/Login.png "Title1")
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/Tela%20Inicial.png "Title2")
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/Suas%20Tarefas.png "Title3")
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/Adicionar%20Tarefa.png "Title4")
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/Equipes.png "Title5")
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/Equipes%20Supervisionadas.png "Title6")
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/Folha%20de%20Ponto.png "Title7")
+![Arquivo PDF do Protótipo Balsamiq](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/BDDTrab01_Prototipacao_EllenNevesCarlosBrenoNoratoCleberSalustiano.pdf "Protótipo Balsamiq")
+
+<!--
 Neste ponto a codificação não e necessária, somente as ideias de telas devem ser criadas, o princípio aqui é pensar na criação da interface para identificar possíveis informações a serem armazenadas ou descartadas <br>
 
 Sugestão: https://balsamiq.com/products/mockups/<br>
 
 ![Alt text](https://github.com/discipbd1/trab01/blob/master/balsamiq.png?raw=true "Title")
 ![Arquivo PDF do Protótipo Balsamiq feito para Empresa Devcom](https://github.com/discipbd1/trab01/blob/master/arquivos/EmpresaDevcom.pdf?raw=true "Empresa Devcom")
+-->
 #### 4.2 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
  a) O sistema proposto poderá fornecer quais tipos de relatórios e informaçes?<br>
  
-  Relatórios referentes ao fluxo de trabalho da empresa
+  Relatórios referentes ao fluxo de trabalho da empresa.
 
  b) Crie uma lista com os 5 principais relatórios que poderão ser obtidos por meio do sistema proposto! 
-  - Relatório mostrando todas as ativades de um projeto e cada tarefa dessas mesmas atividades, além disso o funcionario que esta efetuando cada tarefa
-  - Relatório mostrando o nome de cada funcionario, a descrição de todas as tarefas que foram alocadas a ele e a qual projeto a atividade dessa tarefa pertence.
-  - Relatório relativo a funcionarios e equipes mostrando todos os funcionarios que são supervisionados por cada supervisor das equipes.
-  - Relatório relacionado a projetos e equipes mostrando, para cada projeto, quais equipes estão responsaveis por cada atividade daquele projeto
-  - Relatorios mostrando o historico de presença e horario de trabalho de cada funcionario
+  - Relatório mostrando todas as ativades de um projeto e cada tarefa dessas mesmas atividades, além disso o funcionario que esta efetuando cada tarefa;
+  - Relatório mostrando o nome de cada funcionario, a descrição de todas as tarefas que foram alocadas a ele e a qual projeto a atividade dessa tarefa pertence;
+  - Relatório relativo a funcionarios e equipes mostrando todos os funcionarios que são supervisionados por cada supervisor das equipes;
+  - Relatório relacionado a projetos e equipes mostrando, para cada projeto, quais equipes estão responsaveis por cada atividade daquele projet;
+  - Relatorios mostrando o historico de presença e horario de trabalho de cada funcionario;
 <!--    
 > A Empresa DevCom precisa inicialmente dos seguintes relatórios:
 * Relatório que mostre o nome de cada supervisor(a) e a quantidade de empregados supervisionados.
