@@ -328,11 +328,9 @@ INSERT INTO TAREFA (FK_ATIVIDADE_id, FK_FUNCIONARIO_ID, id, descricao) VALUES
     (3, 7, 8, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consectetur viverra mi tincidunt pellentesque. Etiam augue metus, pharetra vitae tempus at, fermentum cursus ante.'),
     (2, 8, 9, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consectetur viverra mi tincidunt pellentesque. Etiam augue metus, pharetra vitae tempus at, fermentum cursus ante.'),
     (5, 5, 10, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consectetur viverra mi tincidunt pellentesque. Etiam augue metus, pharetra vitae tempus at, fermentum cursus ante.');
-
-
-
-
 ```
+![Arquivo Backup com os inserts (.sql)](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/backup.sql?raw=thue "Backup") 
+
 
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
     OBS: Incluir para cada tópico as instruções SQL + imagens (print da tela) mostrando os resultados.<br>
