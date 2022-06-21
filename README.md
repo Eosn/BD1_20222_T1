@@ -57,7 +57,7 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
     
 ### 5.MODELO CONCEITUAL<br>
 
-![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/BDDT_modeloconceitual_EllenNevesCarlosBrenoNoratoCleberSalustiano.png?raw=true "Modelo Conceitual")
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/BDDT_modeloconceitual_EllenNevesCarlosBrenoNoratoCleberSalustiano1.png?raw=true "Modelo Conceitual")
     
     
         
@@ -105,7 +105,7 @@ FOLHA_DE_PONTO: Tabela que armazena informações relativas aos pontos de cada f
         (não serão aceitos modelos que não estejam em conformidade)
 -->	
 
-![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/BDDT_modelologico_EllenNevesCarlosBrenoNoratoCleberSalustiano.png?raw=true "Modelo Conceitual")
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/BDDT_modelologico_EllenNevesCarlosBrenoNoratoCleberSalustiano1.png?raw=true "Modelo Conceitual")
 
 ### 7	MODELO FÍSICO<br>
 ```sql
