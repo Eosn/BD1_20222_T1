@@ -105,7 +105,7 @@ FOLHA_DE_PONTO: Tabela que armazena informações relativas aos pontos de cada f
         (não serão aceitos modelos que não estejam em conformidade)
 -->	
 
-![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/BDDT_modelologico_Carlos_BrenoEllenNevesCleberSalustiano.png?raw=true "Modelo Conceitual")
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/BDDT_modelologico_EllenNevesCarlosBrenoNoratoCleberSalustiano.png?raw=true "Modelo Conceitual")
 
 ### 7	MODELO FÍSICO<br>
 ```sql
