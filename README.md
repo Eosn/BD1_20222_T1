@@ -39,44 +39,23 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
 ![Arquivo PDF do Protótipo Balsamiq feito para Empresa Devcom](https://github.com/discipbd1/trab01/blob/master/arquivos/EmpresaDevcom.pdf?raw=true "Empresa Devcom")
 -->
 #### 4.2 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
- a) O sistema proposto poderá fornecer quais tipos de relatórios e informaçes?<br>
+ a) O sistema proposto poderá fornecer quais tipos de relatórios e informações?<br>
  
   Relatórios referentes ao fluxo de trabalho da empresa.
 
  b) Crie uma lista com os 5 principais relatórios que poderão ser obtidos por meio do sistema proposto! 
-  - Relatório mostrando todas as ativades de um projeto e cada tarefa dessas mesmas atividades, além disso o funcionario que esta efetuando cada tarefa;
-  - Relatório mostrando o nome de cada funcionario, a descrição de todas as tarefas que foram alocadas a ele e a qual projeto a atividade dessa tarefa pertence;
-  - Relatório relativo a funcionarios e equipes mostrando todos os funcionarios que são supervisionados por cada supervisor das equipes;
-  - Relatório relacionado a projetos e equipes mostrando, para cada projeto, quais equipes estão responsaveis por cada atividade daquele projet;
-  - Relatorios mostrando o historico de presença e horario de trabalho de cada funcionario;
-<!--    
-> A Empresa DevCom precisa inicialmente dos seguintes relatórios:
-* Relatório que mostre o nome de cada supervisor(a) e a quantidade de empregados supervisionados.
-* Relatório relativo aos os supervisores e supervisionados. O resultado deve conter o nome do supervisor e nome do supervisionado além da quantidade total de horas que cada supervisionado tem alocada aos projetos existentes na empresa.
-* Relatorio que mostre para cada linha obtida o nome do departamento, o valor individual de cada salario existente no  departamento e a média geral de salarios dentre todos os empregados. Os resultados devem ser apresentados ordenados por departamento.
-* Relatório que mostre as informações relacionadas a todos empregados de empresa (sem excluir ninguém). As linhas resultantes devem conter informações sobre: rg, nome, salario do empregado, data de início do salario atual, nomes dos projetos que participa, quantidade de horas e localização nos referidos projetos, numero e nome dos departamentos aos quais está alocado, informações do historico de salário como inicio, fim, e valores de salarios antigos que foram inclusos na referida tabela (caso possuam informações na mesma), além de todas informações relativas aos dependentes. 
->> ##### Observações: <br> a) perceba que este relatório pode conter linhas com alguns dados repetidos (mas não todos). <br>  b) para os empregados que não possuirem alguma destas informações o valor no registro deve aparecer sem informação/nulo. 
-* Relatório que obtenha a frequencia absoluta e frequencia relativa da quantidade de cpfs únicos no relatório anterior. Apresente os resultados ordenados de forma decrescente pela frequencia relativa.
--->
- 
+  - Relatório mostrando todas as ativades de um projeto e cada tarefa dessas mesmas atividades, além do funcionário que está efetuando cada tarefa;
+  - Relatório mostrando o nome de cada funcionário, a descrição de todas as tarefas que foram alocadas a ele e à qual projeto a atividade dessa tarefa pertence;
+  - Relatório relativo a funcionários e equipes mostrando todos os funcionários que são supervisionados por cada supervisor das equipes;
+  - Relatório relacionado a projetos e equipes mostrando, para cada projeto, quais equipes estão responsaveis por cada atividade daquele projeto;
+  - Relatorios mostrando o historico de presença e horario de trabalho de cada funcionário;
  
 #### 4.3 TABELA DE DADOS DO SISTEMA:
-<!--a) Esta tabela deve conter todos os atributos do sistema e um mínimo de 10 linhas/registros de dados.
-b) Esta tabela tem a intenção de simular um relatório com todos os dados que serão armazenados 
--->
+
 ![Tabela de Dados do Sistema](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/BDDTrabalho_tabelas.xlsx?raw=thue "Tabela de dados") 
     
     
 ### 5.MODELO CONCEITUAL<br>
-<!--    A) Utilizar a Notação adequada (Preferencialmente utilizar o BR Modelo 3)
-    B) O mínimo de entidades do modelo conceitual pare este trabalho será igual a 3 e o Máximo 5.
-        * informe quais são as 3 principais entidades do sistema em densenvolvimento<br>(se houverem mais de 3 entidades, pense na importância da entidade para o sistema)       
-    C) Principais fluxos de informação/entidades do sistema (mínimo 3). <br>Dica: normalmente estes fluxos estão associados as tabelas que conterão maior quantidade de dados 
-    D) Qualidade e Clareza
-        Garantir que a semântica dos atributos seja clara no esquema (nomes coerentes com os dados).
-        Criar o esquema de forma a garantir a redução de informação redundante, possibilidade de valores null, 
-        e tuplas falsas (Aplicar os conceitos de normalização abordados).   
--->
 
 ![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/BDDT_modeloconceitual_EllenNevesCarlosBrenoNoratoCleberSalustiano.png?raw=true "Modelo Conceitual")
     
@@ -233,7 +212,7 @@ ALTER TABLE EQUIPE_FUNCIONARIO ADD CONSTRAINT FK_EQUIPE_FUNCIONARIO_2
         
        
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
-<!--        a) inclusão das instruções de inserção dos dados nas tabelas criadas pelo script de modelo físico
+<!--    a) inclusão das instruções de inserção dos dados nas tabelas criadas pelo script de modelo físico
         (Drop para exclusão de tabelas + create definição de para tabelas e estruturas de dados + insert para dados a serem inseridos)
         b) Criar um novo banco de dados para testar a restauracao 
         (em caso de falha na restauração o grupo não pontuará neste quesito)
