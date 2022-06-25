@@ -384,21 +384,25 @@ SELECT * FROM tarefa
 SELECT id, atividade FROM ATIVIDADE 
 WHERE (FK_PROJETO_id = 5);
 ```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/select9_2_a.png?raw=true)
 
 ```sql
 SELECT entrada, saida FROM FOLHA_PONTO 
 WHERE (FK_FUNCIONARIO_ID = 10);
 ```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/select9_2_b.png?raw=true)
 
 ```sql
 SELECT nome FROM EQUIPE 
 WHERE (fk_funcionario_id = 10);
 ```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/select9_2_c.png?raw=true)
 
 ```sql
 SELECT * FROM PROJETO 
 WHERE (id <= 5);
 ```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/select9_2_d.png?raw=true)
 
 #### 9.3	CONSULTAS QUE USAM OPERADORES LÓGICOS, ARITMÉTICOS E TABELAS OU CAMPOS RENOMEADOS (Mínimo 11)
 <!--     a) Criar 5 consultas que envolvam os operadores lógicos AND, OR e Not
@@ -473,31 +477,37 @@ from tarefa t;
 UPDATE FOLHA_PONTO SET saida_almoco = '2021-09-13 12:59' 
 WHERE id = 10;
 ```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/9_5_a.png?raw=true)
 
 ```sql
 DELETE FROM TAREFA 
 WHERE id = 10;
 ```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/select9_5_b.png?raw=true)
 
 ```sql
 UPDATE EQUIPE_FUNCIONARIO SET fk_EQUIPE_id = 2 
 WHERE fk_FUNCIONARIO_ID = 3 AND fk_EQUIPE_id = 7;
 ```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/select9_5_c.png?raw=true)
 
 ```sql
 UPDATE EQUIPE_FUNCIONARIO SET fk_EQUIPE_id = 2 
 WHERE fk_FUNCIONARIO_ID = 5 AND fk_EQUIPE_id = 1;
 ```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/select9_5_d.png?raw=true)
 
 ```sql
 DELETE FROM TAREFA 
 WHERE FK_FUNCIONARIO_ID = 5;
 ```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/select9_5_e.png?raw=true)
 
 ```sql
 DELETE FROM FOLHA_PONTO 
 WHERE id = 9;
 ```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/select9_5_f.png?raw=true)
 
 #### 9.6	CONSULTAS COM INNER JOIN E ORDER BY (Mínimo 6)<br>
     a) Uma junção que envolva todas as tabelas possuindo no mínimo 2 registros no resultado
@@ -595,6 +605,7 @@ SELECT Nome FROM FUNCIONARIO
 WHERE ID = (SELECT fk_funcionario_id FROM EQUIPE 
 	    WHERE nome = "Elen Meyer Team');
 ```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/select9_10_a.png?raw=true)
 
 ```sql
 SELECT * FROM TAREFA 
@@ -602,18 +613,21 @@ WHERE FK_ATIVIDADE_id = (SELECT id FROM ATIVIDADE
 		         WHERE tempo_estimado = '15:00') 
 GROUP BY FK_ATIVIDADE_id;
 ```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/select9_10_b.png?raw=true)
 
 ```sql
 SELECT ID, Nome FROM FUNCIONARIO 
 WHERE ID IN (SELECT fk_FUNCIONARIO_ID FROM EQUIPE_FUNCIONARIO 
 	     WHERE fk_EQUIPE_id = 3);
 ```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/select9_10_c.png?raw=true)
 
 ```sql
 SELECT F.Nome, C.nome FROM FUNCIONARIO F JOIN CARGO C ON C.id = F.FK_CARGO_Id 
 WHERE F.ID IN (SELECT EF.fk_FUNCIONARIO_ID FROM EQUIPE_FUNCIONARIO EF JOIN EQUIPE E ON EF.fk_EQUIPE_id = E.id 
 	       WHERE E.nome = 'Cleitin Bernado Team');
 ```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/select9_10_d.png?raw=true)
 
 ># Marco de Entrega 02: Do item 9.2 até o ítem 9.10<br>
 
