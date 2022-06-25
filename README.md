@@ -380,9 +380,65 @@ SELECT * FROM tarefa
 
 #### 9.2	CONSULTAS DAS TABELAS COM FILTROS WHERE (Mínimo 4)<br>
 #### 9.3	CONSULTAS QUE USAM OPERADORES LÓGICOS, ARITMÉTICOS E TABELAS OU CAMPOS RENOMEADOS (Mínimo 11)
-    a) Criar 5 consultas que envolvam os operadores lógicos AND, OR e Not
+<!--     a) Criar 5 consultas que envolvam os operadores lógicos AND, OR e Not
     b) Criar no mínimo 3 consultas com operadores aritméticos 
-    c) Criar no mínimo 3 consultas com operação de renomear nomes de campos ou tabelas
+    c) Criar no mínimo 3 consultas com operação de renomear nomes de campos ou tabelas -->
+    
+```sql
+select * from funcionario 
+where id > 2 and id < 7;
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/9_3_1.png?raw=true)
+```sql
+select * from atividade 
+where status = 'em andamento' or status = 'concluída';
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/9_3_2.png?raw=true)
+```sql
+select * from folha_ponto
+where id < 2 or id > 5;
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/9_3_3.png?raw=true)
+```sql
+select * from projeto p 
+where id not in (2,3,4,5);
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/9_3_4.png?raw=true)
+```sql
+select * from funcionario 
+where id not in (2,3,4,5);
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/9_3_5.png?raw=true)
+```sql
+select * from equipe_funcionario ef 
+where fk_funcionario_id = 2 + 4;
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/9_3_6.png?raw=true)
+```sql
+select * from equipe
+where id = 2 or id = 2-1;
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/9_3_7.png?raw=true)
+```sql
+select * from tarefa t 
+where id > 2 + 4 and id < 10;
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/9_3_8.png?raw=true)
+```sql
+select nome as "Nome do Funcionário", data_nascimento as "Data de Nascimento" 
+from funcionario f;
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/9_3_9.png?raw=true)
+```sql
+select nome as "Nome da Equipe" 
+from equipe e;
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/9_3_10.png?raw=true)
+```sql
+select descricao as "Descrição da tarefa" 
+from tarefa t; 
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/9_3_11.png?raw=true)
 
 #### 9.4	CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
     a) Criar outras 5 consultas que envolvam like ou ilike
@@ -397,15 +453,87 @@ SELECT * FROM tarefa
     b) Outras junções que o grupo considere como sendo as de principal importância para o trabalho
 
 #### 9.7	CONSULTAS COM GROUP BY E FUNÇÕES DE AGRUPAMENTO (Mínimo 6)<br>
-    a) Criar minimo 2 envolvendo algum tipo de junção
-
+<!--     a) Criar minimo 2 envolvendo algum tipo de junção
+ -->
+```sql
+select status, count(status) 
+from atividade a
+group by (status);
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/9_7_1.png?raw=true)
+```sql
+select nome from equipe e 
+group by (nome);
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/9_7_2.png?raw=true)
+```sql
+select f.nome as "Nome do funcionário", e.nome as "Nome da Equipe" from funcionario f 
+left join equipe e ON (e.fk_funcionario_id = f.id)
+group by (f.nome, e.nome);
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/9_7_3.png?raw=true)
+```sql
+select f.nome as "Nome Funcionário", age(fp.entrada) as "Quando foi registrado" from funcionario f 
+left join folha_ponto fp  on (f.id  = fp.fk_funcionario_id  )
+group by (f.nome, fp.entrada);
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/9_7_4.png?raw=true)
+```sql
+select entrada, count(entrada) from folha_ponto fp 
+group by (entrada);
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/9_7_5.png?raw=true)
+```sql
+select count(fk_atividade_id) from tarefa t
+where fk_atividade_id = fk_funcionario_id 
+group by (fk_atividade_id, fk_funcionario_id);
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/9_7_6.png?raw=true)
 #### 9.8	CONSULTAS COM LEFT, RIGHT E FULL JOIN (Mínimo 4)<br>
     a) Criar minimo 1 de cada tipo
 
 #### 9.9	CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
-        a) Uma junção que envolva Self Join (caso não ocorra na base justificar e substituir por uma view)
-        b) Outras junções com views que o grupo considere como sendo de relevante importância para o trabalho
-
+<!--         a) Uma junção que envolva Self Join (caso não ocorra na base justificar e substituir por uma view)
+        b) Outras junções com views que o grupo considere como sendo de relevante importância para o trabalho 
+-->
+```sql
+create view funcionario_supervisor as
+select f.nome as "Funcionário", f2.nome as "Supervisor"  from funcionario f 
+inner join equipe_funcionario ef on (f.id = ef.fk_funcionario_id)
+inner join equipe e on (e.id = ef.fk_equipe_id) 
+inner join funcionario f2 on (f2.id = e.fk_funcionario_id);
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/9_9_1.png?raw=true)
+```sql
+create view tarefa_atividade as
+select a.atividade as "Nome atividade", t.descricao as "Descricao das Tarefas" from tarefa t 
+left join atividade a on (a.id = t.fk_atividade_id);
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/9_9_2.png?raw=true)
+```sql
+create view nome_cpf_funcionario as
+select nome as "Nome", cpf as "CPF" from funcionario;
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/9_9_3.png?raw=true)
+```sql
+create view atividade_projeto as
+select a.atividade as "Nome Atividades", p.nome as "Nome Projeto"  from atividade a 
+left join projeto p on (p.id = a.fk_projeto_id);
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/9_9_4.png?raw=true)
+```sql
+create view funcionario_cargo as
+select f.nome as "Nome", c.nome as "Cargo" from funcionario f 
+left join cargo c on (c.id = f.fk_cargo_id);
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/9_9_5.png?raw=true)
+```sql
+create view equipe_supervisor as
+select e.nome as "Nome da Equipe", f.nome as "Nome do Supervisor" 
+from equipe e 
+left join funcionario f on (f.id = e.fk_funcionario_id);
+```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/9_9_6.png?raw=true)
 #### 9.10	SUBCONSULTAS (Mínimo 4)<br>
      a) Criar minimo 1 envolvendo GROUP BY
      b) Criar minimo 1 envolvendo algum tipo de junção
