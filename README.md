@@ -477,7 +477,7 @@ from tarefa t;
 UPDATE FOLHA_PONTO SET saida_almoco = '2021-09-13 12:59' 
 WHERE id = 10;
 ```
-![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/9_5_a.png?raw=true)
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/select9_5_a.png?raw=true)
 
 ```sql
 DELETE FROM TAREFA 
