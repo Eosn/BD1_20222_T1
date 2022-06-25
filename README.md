@@ -379,6 +379,27 @@ SELECT * FROM tarefa
 ># Marco de Entrega 01: Do item 1 até o item 9.1<br>
 
 #### 9.2	CONSULTAS DAS TABELAS COM FILTROS WHERE (Mínimo 4)<br>
+
+```sql
+SELECT id, atividade FROM ATIVIDADE 
+WHERE (FK_PROJETO_id = 5);
+```
+
+```sql
+SELECT entrada, saida FROM FOLHA_PONTO 
+WHERE (FK_FUNCIONARIO_ID = 10);
+```
+
+```sql
+SELECT nome FROM EQUIPE 
+WHERE (fk_funcionario_id = 10);
+```
+
+```sql
+SELECT * FROM PROJETO 
+WHERE (id <= 5);
+```
+
 #### 9.3	CONSULTAS QUE USAM OPERADORES LÓGICOS, ARITMÉTICOS E TABELAS OU CAMPOS RENOMEADOS (Mínimo 11)
 <!--     a) Criar 5 consultas que envolvam os operadores lógicos AND, OR e Not
     b) Criar no mínimo 3 consultas com operadores aritméticos 
@@ -447,6 +468,36 @@ from tarefa t;
 #### 9.5	INSTRUÇÕES APLICANDO ATUALIZAÇÃO E EXCLUSÃO DE DADOS (Mínimo 6)<br>
     a) Criar minimo 3 de exclusão
     b) Criar minimo 3 de atualização
+    
+```sql
+UPDATE FOLHA_PONTO SET saida_almoco = '2021-09-13 12:59' 
+WHERE id = 10;
+```
+
+```sql
+DELETE FROM TAREFA 
+WHERE id = 10;
+```
+
+```sql
+UPDATE EQUIPE_FUNCIONARIO SET fk_EQUIPE_id = 2 
+WHERE fk_FUNCIONARIO_ID = 3 AND fk_EQUIPE_id = 7;
+```
+
+```sql
+UPDATE EQUIPE_FUNCIONARIO SET fk_EQUIPE_id = 2 
+WHERE fk_FUNCIONARIO_ID = 5 AND fk_EQUIPE_id = 1;
+```
+
+```sql
+DELETE FROM TAREFA 
+WHERE FK_FUNCIONARIO_ID = 5;
+```
+
+```sql
+DELETE FROM FOLHA_PONTO 
+WHERE id = 9;
+```
 
 #### 9.6	CONSULTAS COM INNER JOIN E ORDER BY (Mínimo 6)<br>
     a) Uma junção que envolva todas as tabelas possuindo no mínimo 2 registros no resultado
@@ -537,6 +588,32 @@ left join funcionario f on (f.id = e.fk_funcionario_id);
 #### 9.10	SUBCONSULTAS (Mínimo 4)<br>
      a) Criar minimo 1 envolvendo GROUP BY
      b) Criar minimo 1 envolvendo algum tipo de junção
+
+
+```sql
+SELECT Nome FROM FUNCIONARIO 
+WHERE ID = (SELECT fk_funcionario_id FROM EQUIPE 
+	    WHERE nome = "Elen Meyer Team');
+```
+
+```sql
+SELECT * FROM TAREFA 
+WHERE FK_ATIVIDADE_id = (SELECT id FROM ATIVIDADE 
+		         WHERE tempo_estimado = '15:00') 
+GROUP BY FK_ATIVIDADE_id;
+```
+
+```sql
+SELECT ID, Nome FROM FUNCIONARIO 
+WHERE ID IN (SELECT fk_FUNCIONARIO_ID FROM EQUIPE_FUNCIONARIO 
+	     WHERE fk_EQUIPE_id = 3);
+```
+
+```sql
+SELECT F.Nome, C.nome FROM FUNCIONARIO F JOIN CARGO C ON C.id = F.FK_CARGO_Id 
+WHERE F.ID IN (SELECT EF.fk_FUNCIONARIO_ID FROM EQUIPE_FUNCIONARIO EF JOIN EQUIPE E ON EF.fk_EQUIPE_id = E.id 
+	       WHERE E.nome = 'Cleitin Bernado Team');
+```
 
 ># Marco de Entrega 02: Do item 9.2 até o ítem 9.10<br>
 
