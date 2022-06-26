@@ -384,25 +384,21 @@ SELECT * FROM tarefa
 SELECT id, atividade FROM ATIVIDADE 
 WHERE (FK_PROJETO_id = 5);
 ```
-![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/select9_2_a.png?raw=true)
 
 ```sql
 SELECT entrada, saida FROM FOLHA_PONTO 
 WHERE (FK_FUNCIONARIO_ID = 10);
 ```
-![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/select9_2_b.png?raw=true)
 
 ```sql
 SELECT nome FROM EQUIPE 
 WHERE (fk_funcionario_id = 10);
 ```
-![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/select9_2_c.png?raw=true)
 
 ```sql
 SELECT * FROM PROJETO 
 WHERE (id <= 5);
 ```
-![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/select9_2_d.png?raw=true)
 
 #### 9.3	CONSULTAS QUE USAM OPERADORES LÓGICOS, ARITMÉTICOS E TABELAS OU CAMPOS RENOMEADOS (Mínimo 11)
 <!--     a) Criar 5 consultas que envolvam os operadores lógicos AND, OR e Not
@@ -467,51 +463,164 @@ from tarefa t;
 
 #### 9.4	CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
     a) Criar outras 5 consultas que envolvam like ou ilike
+ ```sql
+SELECT * FROM funcionario
+WHERE nome LIKE 'R%'
+```
+ ```sql
+SELECT * FROM atividade
+WHERE status LIKE 'pendente'
+```
+
+ ```sql
+SELECT * FROM atividade
+WHERE status LIKE 'em andamento'
+```
+
+ ```sql
+SELECT * FROM atividade
+WHERE status LIKE 'concluída'
+```
+
+ ```sql
+SELECT * FROM projeto
+INNER JOIN atividade
+ON (projeto.id = atividade.fk_projeto_id)
+WHERE projeto.nome LIKE 'Sistema de controle - Farm Genshin Impact'
+```
+
+```sql
+SELECT * FROM atividade
+INNER JOIN tarefa
+ON (atividade.id = tarefa.fk_atividade_id)
+WHERE atividade LIKE 'Chamado 237'
+```
+
+ ```sql
+SELECT funcionario.nome as nome, cargo.nome as cargo FROM funcionario
+INNER JOIN cargo
+ON (funcionario.fk_cargo_id = cargo.id)
+WHERE cargo.nome LIKE 'Estagiário'
+```
+
     b) Criar uma consulta para cada tipo de função data apresentada.
+ ```sql
+SELECT funcionario.nome as funcionario, (extract(HOUR FROM saida- entrada)) as horas_trabalhadas, (extract(DAY FROM entrada)) as dia, (extract(MONTH FROM entrada)) as mes FROM folha_ponto
+INNER JOIN funcionario
+ON (folha_ponto.fk_funcionario_id = funcionario.id)
+```
+
+ ```sql
+SELECT funcionario.nome, age(data_nascimento) as idade FROM funcionario
+```
+
+ ```sql
+SELECT funcionario.nome as funcionario, (extract(HOUR FROM entrada_pos_almoco- saida_almoco)) as tempo_almoco, (extract(DAY FROM entrada)) as dia, (extract(MONTH FROM entrada)) as mes FROM folha_ponto
+INNER JOIN funcionario
+ON (folha_ponto.fk_funcionario_id = funcionario.id)
+```
+
+ ```sql
+SELECT nome FROM funcionario
+WHERE date_part('month', data_nascimento) = 9
+```
+
+```sql
+SELECT nome, date_part('year', data_nascimento) as ano_nascimento FROM funcionario
+ORDER BY ano_nascimento
+```
 
 #### 9.5	INSTRUÇÕES APLICANDO ATUALIZAÇÃO E EXCLUSÃO DE DADOS (Mínimo 6)<br>
     a) Criar minimo 3 de exclusão
-    b) Criar minimo 3 de atualização
+    b) Criar minimo 3 de atualizaçãoWW
     
 ```sql
 UPDATE FOLHA_PONTO SET saida_almoco = '2021-09-13 12:59' 
 WHERE id = 10;
 ```
-![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/select9_5_a.png?raw=true)
 
 ```sql
 DELETE FROM TAREFA 
 WHERE id = 10;
 ```
-![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/select9_5_b.png?raw=true)
 
 ```sql
 UPDATE EQUIPE_FUNCIONARIO SET fk_EQUIPE_id = 2 
 WHERE fk_FUNCIONARIO_ID = 3 AND fk_EQUIPE_id = 7;
 ```
-![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/select9_5_c.png?raw=true)
 
 ```sql
 UPDATE EQUIPE_FUNCIONARIO SET fk_EQUIPE_id = 2 
 WHERE fk_FUNCIONARIO_ID = 5 AND fk_EQUIPE_id = 1;
 ```
-![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/select9_5_d.png?raw=true)
 
 ```sql
 DELETE FROM TAREFA 
 WHERE FK_FUNCIONARIO_ID = 5;
 ```
-![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/select9_5_e.png?raw=true)
 
 ```sql
 DELETE FROM FOLHA_PONTO 
 WHERE id = 9;
 ```
-![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/select9_5_f.png?raw=true)
 
 #### 9.6	CONSULTAS COM INNER JOIN E ORDER BY (Mínimo 6)<br>
     a) Uma junção que envolva todas as tabelas possuindo no mínimo 2 registros no resultado
+
+```sql
+SELECT funcionario.nome as nome, equipe.nome as equipe, atividade.atividade as atividade, tarefa.descricao, projeto.nome as projeto, cargo.nome as cargo, folha_ponto.entrada  FROM funcionario
+INNER JOIN cargo
+ON (funcionario.fk_cargo_id = cargo.id)
+INNER JOIN folha_ponto
+ON (funcionario.id = folha_ponto.fk_funcionario_id)
+INNER JOIN equipe
+ON (funcionario.id = equipe.fk_funcionario_id)
+INNER JOIN atividade
+ON (equipe.id = atividade.fk_equipe_id)
+INNER JOIN projeto
+ON (atividade.fk_projeto_id = projeto.id)
+INNER JOIN tarefa
+ON (atividade.id = tarefa.fk_atividade_id)
+ORDER BY equipe.nome
+```
     b) Outras junções que o grupo considere como sendo as de principal importância para o trabalho
+```sql
+SELECT cargo.nome, COUNT(funcionario.id) as quant_funcionarios  FROM cargo
+INNER JOIN funcionario
+ON (cargo.id = funcionario.fk_cargo_id)
+GROUP BY cargo.nome
+```
+
+```sql
+SELECT equipe.nome as equipe, funcionario.nome as funcionario FROM funcionario
+INNER JOIN equipe_funcionario
+ON (funcionario.id = equipe_funcionario.fk_funcionario_id)
+INNER JOIN equipe
+ON (equipe_funcionario.fk_equipe_id = equipe.id) 
+ORDER BY equipe.nome
+```
+
+```sql
+SELECT * FROM projeto 
+INNER JOIN atividade
+ON (projeto.id = atividade.fk_projeto_id)
+WHERE projeto.id = 3
+```
+
+```sql
+SELECT funcionario.nome as Funcionario, atividade.atividade, tarefa.descricao as tarefa, tarefa.id as nome_tarefa FROM funcionario
+FULL JOIN tarefa
+ON (funcionario.id = tarefa.fk_funcionario_id)
+FULL JOIN atividade
+ON (tarefa.fk_atividade_id = atividade.id)
+ORDER BY atividade.atividade
+```
+
+```sql
+SELECT funcionario.nome as supervisor, equipe.nome as equipe FROM funcionario
+INNER JOIN equipe
+ON (funcionario.id = equipe.fk_funcionario_id)
+```
 
 #### 9.7	CONSULTAS COM GROUP BY E FUNÇÕES DE AGRUPAMENTO (Mínimo 6)<br>
 <!--     a) Criar minimo 2 envolvendo algum tipo de junção
@@ -552,6 +661,32 @@ group by (fk_atividade_id, fk_funcionario_id);
 ![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/9_7_6.png?raw=true)
 #### 9.8	CONSULTAS COM LEFT, RIGHT E FULL JOIN (Mínimo 4)<br>
     a) Criar minimo 1 de cada tipo
+```sql
+SELECT atividade.atividade as nome_atividade, atividade.status, tarefa.id as numero_da_tarefa, tarefa.descricao FROM atividade
+LEFT JOIN tarefa
+ON (atividade.id = tarefa.fk_atividade_id)
+ORDER BY atividade
+```
+   
+```sql
+SELECT * FROM atividade
+RIGHT JOIN projeto
+ON (atividade.fk_projeto_id = projeto.id)
+```
+   
+```sql
+SELECT funcionario.nome as funcionario, equipe.nome as equipe FROM funcionario
+FULL JOIN equipe_funcionario
+ON(funcionario.id = equipe_funcionario.fk_funcionario_id)
+FULL JOIN equipe
+ON(equipe_funcionario.fk_equipe_id = equipe.id)
+```
+   
+```sql
+SELECT funcionario.nome, tarefa.id as numero_da_tarefa, tarefa.descricao FROM funcionario
+LEFT JOIN tarefa
+ON (funcionario.id = tarefa.fk_funcionario_id)
+```
 
 #### 9.9	CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
 <!--         a) Uma junção que envolva Self Join (caso não ocorra na base justificar e substituir por uma view)
@@ -605,7 +740,6 @@ SELECT Nome FROM FUNCIONARIO
 WHERE ID = (SELECT fk_funcionario_id FROM EQUIPE 
 	    WHERE nome = "Elen Meyer Team');
 ```
-![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/select9_10_a.png?raw=true)
 
 ```sql
 SELECT * FROM TAREFA 
@@ -613,21 +747,18 @@ WHERE FK_ATIVIDADE_id = (SELECT id FROM ATIVIDADE
 		         WHERE tempo_estimado = '15:00') 
 GROUP BY FK_ATIVIDADE_id;
 ```
-![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/select9_10_b.png?raw=true)
 
 ```sql
 SELECT ID, Nome FROM FUNCIONARIO 
 WHERE ID IN (SELECT fk_FUNCIONARIO_ID FROM EQUIPE_FUNCIONARIO 
 	     WHERE fk_EQUIPE_id = 3);
 ```
-![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/select9_10_c.png?raw=true)
 
 ```sql
 SELECT F.Nome, C.nome FROM FUNCIONARIO F JOIN CARGO C ON C.id = F.FK_CARGO_Id 
 WHERE F.ID IN (SELECT EF.fk_FUNCIONARIO_ID FROM EQUIPE_FUNCIONARIO EF JOIN EQUIPE E ON EF.fk_EQUIPE_id = E.id 
 	       WHERE E.nome = 'Cleitin Bernado Team');
 ```
-![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/select9_10_d.png?raw=true)
 
 ># Marco de Entrega 02: Do item 9.2 até o ítem 9.10<br>
 
