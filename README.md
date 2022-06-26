@@ -462,8 +462,8 @@ from tarefa t;
 ![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/9_3_11.png?raw=true)
 
 #### 9.4	CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
-    a) Criar outras 5 consultas que envolvam like ou ilike
- ```sql
+
+```sql
 SELECT * FROM funcionario
 WHERE nome LIKE 'R%'
 ```
@@ -504,7 +504,7 @@ ON (funcionario.fk_cargo_id = cargo.id)
 WHERE cargo.nome LIKE 'Estagiário'
 ```
 ![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/Select7_9-4.png?raw=true)
-    b) Criar uma consulta para cada tipo de função data apresentada.
+    
  ```sql
 SELECT funcionario.nome as funcionario, (extract(HOUR FROM saida- entrada)) as horas_trabalhadas, (extract(DAY FROM entrada)) as dia, (extract(MONTH FROM entrada)) as mes FROM folha_ponto
 INNER JOIN funcionario
@@ -566,7 +566,7 @@ WHERE id = 9;
 ```
 
 #### 9.6	CONSULTAS COM INNER JOIN E ORDER BY (Mínimo 6)<br>
-    a) Uma junção que envolva todas as tabelas possuindo no mínimo 2 registros no resultado
+    
 
 ```sql
 SELECT funcionario.nome as nome, equipe.nome as equipe, atividade.atividade as atividade, tarefa.descricao, projeto.nome as projeto, cargo.nome as cargo, folha_ponto.entrada  FROM funcionario
@@ -585,7 +585,7 @@ ON (atividade.id = tarefa.fk_atividade_id)
 ORDER BY equipe.nome
 ```
 ![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/Select1_9-6.png?raw=true)
-    b) Outras junções que o grupo considere como sendo as de principal importância para o trabalho
+    
 ```sql
 SELECT cargo.nome, COUNT(funcionario.id) as quant_funcionarios  FROM cargo
 INNER JOIN funcionario
@@ -662,7 +662,7 @@ group by (fk_atividade_id, fk_funcionario_id);
 ```
 ![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/9_7_6.png?raw=true)
 #### 9.8	CONSULTAS COM LEFT, RIGHT E FULL JOIN (Mínimo 4)<br>
-    a) Criar minimo 1 de cada tipo
+   
 ```sql
 SELECT atividade.atividade as nome_atividade, atividade.status, tarefa.id as numero_da_tarefa, tarefa.descricao FROM atividade
 LEFT JOIN tarefa
