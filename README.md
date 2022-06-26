@@ -467,69 +467,70 @@ from tarefa t;
 SELECT * FROM funcionario
 WHERE nome LIKE 'R%'
 ```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/Select1_9-4.png?raw=true)
  ```sql
 SELECT * FROM atividade
 WHERE status LIKE 'pendente'
 ```
-
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/Select2_9-4.png?raw=true)
  ```sql
 SELECT * FROM atividade
 WHERE status LIKE 'em andamento'
 ```
-
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/Select3_9-4.png?raw=true)
  ```sql
 SELECT * FROM atividade
 WHERE status LIKE 'concluída'
 ```
-
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/Select4_9-4.png?raw=true)
  ```sql
 SELECT * FROM projeto
 INNER JOIN atividade
 ON (projeto.id = atividade.fk_projeto_id)
 WHERE projeto.nome LIKE 'Sistema de controle - Farm Genshin Impact'
 ```
-
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/Select5_9-4.png?raw=true)
 ```sql
 SELECT * FROM atividade
 INNER JOIN tarefa
 ON (atividade.id = tarefa.fk_atividade_id)
 WHERE atividade LIKE 'Chamado 237'
 ```
-
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/Select6_9-4.png?raw=true)
  ```sql
 SELECT funcionario.nome as nome, cargo.nome as cargo FROM funcionario
 INNER JOIN cargo
 ON (funcionario.fk_cargo_id = cargo.id)
 WHERE cargo.nome LIKE 'Estagiário'
 ```
-
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/Select7_9-4.png?raw=true)
     b) Criar uma consulta para cada tipo de função data apresentada.
  ```sql
 SELECT funcionario.nome as funcionario, (extract(HOUR FROM saida- entrada)) as horas_trabalhadas, (extract(DAY FROM entrada)) as dia, (extract(MONTH FROM entrada)) as mes FROM folha_ponto
 INNER JOIN funcionario
 ON (folha_ponto.fk_funcionario_id = funcionario.id)
 ```
-
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/Select8_9-4.png?raw=true)
  ```sql
 SELECT funcionario.nome, age(data_nascimento) as idade FROM funcionario
 ```
-
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/Select9_9-4.png?raw=true)
  ```sql
 SELECT funcionario.nome as funcionario, (extract(HOUR FROM entrada_pos_almoco- saida_almoco)) as tempo_almoco, (extract(DAY FROM entrada)) as dia, (extract(MONTH FROM entrada)) as mes FROM folha_ponto
 INNER JOIN funcionario
 ON (folha_ponto.fk_funcionario_id = funcionario.id)
 ```
-
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/Select10_9-4.png?raw=true)
  ```sql
 SELECT nome FROM funcionario
 WHERE date_part('month', data_nascimento) = 9
 ```
-
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/Select11_9-4.png?raw=true)
 ```sql
 SELECT nome, date_part('year', data_nascimento) as ano_nascimento FROM funcionario
 ORDER BY ano_nascimento
 ```
-
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/Select12_9-4.png?raw=true)
 #### 9.5	INSTRUÇÕES APLICANDO ATUALIZAÇÃO E EXCLUSÃO DE DADOS (Mínimo 6)<br>
     a) Criar minimo 3 de exclusão
     b) Criar minimo 3 de atualizaçãoWW
@@ -583,6 +584,7 @@ INNER JOIN tarefa
 ON (atividade.id = tarefa.fk_atividade_id)
 ORDER BY equipe.nome
 ```
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/Select1_9-6.png?raw=true)
     b) Outras junções que o grupo considere como sendo as de principal importância para o trabalho
 ```sql
 SELECT cargo.nome, COUNT(funcionario.id) as quant_funcionarios  FROM cargo
@@ -590,7 +592,7 @@ INNER JOIN funcionario
 ON (cargo.id = funcionario.fk_cargo_id)
 GROUP BY cargo.nome
 ```
-
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/Select2_9-6.png?raw=true)
 ```sql
 SELECT equipe.nome as equipe, funcionario.nome as funcionario FROM funcionario
 INNER JOIN equipe_funcionario
@@ -599,29 +601,29 @@ INNER JOIN equipe
 ON (equipe_funcionario.fk_equipe_id = equipe.id) 
 ORDER BY equipe.nome
 ```
-
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/Select3_9-6.png?raw=true)
 ```sql
 SELECT * FROM projeto 
 INNER JOIN atividade
 ON (projeto.id = atividade.fk_projeto_id)
 WHERE projeto.id = 3
 ```
-
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/Select4_9-6.png?raw=true)
 ```sql
 SELECT funcionario.nome as Funcionario, atividade.atividade, tarefa.descricao as tarefa, tarefa.id as nome_tarefa FROM funcionario
-FULL JOIN tarefa
+INNER JOIN tarefa
 ON (funcionario.id = tarefa.fk_funcionario_id)
-FULL JOIN atividade
+INNER JOIN atividade
 ON (tarefa.fk_atividade_id = atividade.id)
 ORDER BY atividade.atividade
 ```
-
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/Select5_9-6.png?raw=true)
 ```sql
 SELECT funcionario.nome as supervisor, equipe.nome as equipe FROM funcionario
 INNER JOIN equipe
 ON (funcionario.id = equipe.fk_funcionario_id)
 ```
-
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/Select6_9-6.png?raw=true)
 #### 9.7	CONSULTAS COM GROUP BY E FUNÇÕES DE AGRUPAMENTO (Mínimo 6)<br>
 <!--     a) Criar minimo 2 envolvendo algum tipo de junção
  -->
@@ -667,13 +669,13 @@ LEFT JOIN tarefa
 ON (atividade.id = tarefa.fk_atividade_id)
 ORDER BY atividade
 ```
-   
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/Select1_9-8.png?raw=true)   
 ```sql
 SELECT * FROM atividade
 RIGHT JOIN projeto
 ON (atividade.fk_projeto_id = projeto.id)
 ```
-   
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/Select2_9-8.png?raw=true)   
 ```sql
 SELECT funcionario.nome as funcionario, equipe.nome as equipe FROM funcionario
 FULL JOIN equipe_funcionario
@@ -681,13 +683,13 @@ ON(funcionario.id = equipe_funcionario.fk_funcionario_id)
 FULL JOIN equipe
 ON(equipe_funcionario.fk_equipe_id = equipe.id)
 ```
-   
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/Select3_9-8.png?raw=true)   
 ```sql
 SELECT funcionario.nome, tarefa.id as numero_da_tarefa, tarefa.descricao FROM funcionario
 LEFT JOIN tarefa
 ON (funcionario.id = tarefa.fk_funcionario_id)
 ```
-
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/arquivos/Select4_9-8.png?raw=true)   
 #### 9.9	CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
 <!--         a) Uma junção que envolva Self Join (caso não ocorra na base justificar e substituir por uma view)
         b) Outras junções com views que o grupo considere como sendo de relevante importância para o trabalho 
