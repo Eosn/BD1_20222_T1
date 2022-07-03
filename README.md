@@ -781,6 +781,16 @@ WHERE F.ID IN (SELECT EF.fk_FUNCIONARIO_ID FROM EQUIPE_FUNCIONARIO EF JOIN EQUIP
 ### 10 RELATÓRIOS E GRÁFICOS
 
 #### a) análises e resultados provenientes do banco de dados desenvolvido (usar modelo disponível)
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/relatorio1.png?raw=true)
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/grafico1.png?raw=true)
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/relatorio2.png?raw=true)
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/grafico2.png?raw=true)
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/relatorio3.png?raw=true)
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/grafico3.png?raw=true)
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/relatorio4.png?raw=true)
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/grafico4.png?raw=true)
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/relatorio5.png?raw=true)
+![Alt text](https://github.com/Eosn/BD1_20222_T1/blob/master/images/grafico5.png?raw=true)
 #### b) link com exemplo de relatórios será disponiblizado pelo professor no AVA
 #### OBS: Esta é uma atividade de grande relevância no contexto do trabalho. Mantenha o foco nos 5 principais relatórios/resultados visando obter o melhor resultado possível.
 
